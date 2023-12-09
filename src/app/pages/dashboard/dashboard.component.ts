@@ -75,7 +75,7 @@ export class DashboardComponent implements OnInit  {
     sortedConditions.forEach(conditionName => {
       topCondition.push({ conditionName, count: conditionCount[conditionName] });
     });
-    return [...topCondition, ...topCondition, ...topCondition];
+    return topCondition;
   }
 
   countPatientGender(gender:string){
