@@ -24,7 +24,7 @@
         </thead>
         <tbody class="table-group-divider">
           <tr [className]="i+1 == patients.length ? 'border-bottom-tr' : ''" *ngFor="let patient of patients; let i = index">
-            <td [className]="i+1 == patients.length ? 'border-rounded-left' : ''">{{patient.identification | stringFormat: 'identification' }}</td>
+            <td [className]="i+1 == patients.length ? 'border-rounded-left' : ''">{{patient.identification! | stringFormat: 'identification' }}</td>
             <td>{{patient.name}}</td>
             <td>{{patient.lastname}}</td>
             <td>{{patient.age}}</td>

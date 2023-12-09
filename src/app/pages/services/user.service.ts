@@ -18,5 +18,9 @@ export class UserService {
     return addDoc(this.userRef, user);
   }
 
-
+  getUserLogin(userAuthId: string): Observable<User[]>{
+    return collectionData(this.userRef, {idField: 'id'}).pipe(
+      map(users => users.filter(user => (user as User).userAuthId == userAuthId && (user as User).is_active))
+    ) as Observable<User[]>;
+  }  
 }

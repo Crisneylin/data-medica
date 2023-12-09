@@ -1,19 +1,59 @@
-<p>
-  dashboard works!
-</p>
-
-
-<pre>
-  {{user$ | async | json}}
-</pre>
-
 <div class="row">
   <div class="col">
 
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped table-dark table-hover">
+          <thead>
+            <tr>
+              <th>Nombres</th>
+              <th>Mujeres</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <td>{{countPatientGender("Hombre")}}</td>
+              <td>{{countPatientGender("Mujer")}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped table-dark table-hover">
+          <thead>
+            <tr>
+              <th>Rango de Edad</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let ageRange of getAgeRange(); let i = index">
+              <td>{{ageRange.min}} - {{ageRange.max}}</td>
+              <td>{{countPatientAge(ageRange.min, ageRange.max)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="col">
-    <table>
-      <thead></thead>
-    </table>
+  <div class="col d-flex align-items-center">
+    <div class="col-12 overflow-auto" style="max-height: 85vh;">
+      <table class="table table-striped table-dark table-hover">
+        <thead style="position: sticky; top: 0; z-index: 1;">
+          <tr>
+            <th class="rounded-top-3 rounded-end-0">Diagnósticos</th>
+            <th class="rounded-start-0 rounded-end-3">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr [className]="i+1 == patients.length ? 'border-bottom-tr' : ''" *ngFor="let top of getTopConditionConsultation(); let i = index">
+            <td [className]="i+1 == patients.length ? 'border-rounded-left' : ''">{{ top.conditionName }}</td>
+            <td [className]="i+1 == patients.length ? 'border-rounded-right' : ''">{{ top.count }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

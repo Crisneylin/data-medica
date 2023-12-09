@@ -27,7 +27,7 @@ export class AddPatientComponent implements OnInit {
   constructor(private sharedService: SharedService, private patientService: PatientService, 
     private datePipe: DatePipe, private sweetalert: SweetalertService, private dialogRef: MatDialogRef<AddPatientComponent>) { 
     this.patientForm = new FormGroup({
-      identification: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]),
+      identification: new FormControl('', [Validators.minLength(9), Validators.maxLength(11)]),
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       lastname: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       age: new FormControl(null, [Validators.required,Validators.min(0),Validators.max(110),Validators.pattern('^[0-9]+$')]),

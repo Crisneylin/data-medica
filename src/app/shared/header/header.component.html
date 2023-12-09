@@ -8,12 +8,12 @@
   </div>
   <div class="dropdown">
     <div class="dropdown-toggle dropdownCustom btn p-1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="../../../assets/img/user.png" alt="avatar" width="40" >
-      <span class="ms-2 text-light">{{userName}}</span>
+      <img src="../../../assets/img/only logo.png" class="circle-container" alt="avatar" width="40" >
+      <span class="ms-2 text-light">{{userLogin.firstName}} {{userLogin.lastName}}</span>
     </div>
     <div class="d-inline-block">
       <ul class="dropdown-menu dropdownMenuCustom">
-        <li (click)="redirectToProfile()"><a class="btn dropdown-item dropdownItemCustom">Perfil</a></li>
+        <!-- <li (click)="redirectToProfile()"><a class="btn dropdown-item dropdownItemCustom">Perfil</a></li> -->
         <li (click)="logout()"><a class="btn dropdown-item dropdownItemCustom">Cerrar Sesión</a></li>
       </ul>
     </div>

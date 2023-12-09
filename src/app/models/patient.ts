@@ -2,7 +2,7 @@ import { GenderEnum } from "./enum/gender.enum";
 
 export interface Patient {
     id?: string;
-    identification: string;
+    identification?: string;
     name: string;
     lastname: string;
     age: number;
