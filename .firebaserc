@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "data-medica-95b9e": {
+      "hosting": {
+        "data-medica": [
+          "data-medica-95b9e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "data-medica-95b9e"
+  }
+}

@@ -1,0 +1,33 @@
+mat-toolbar{
+    background: #024440;
+    color: white;
+}
+
+.dropdownCustom{
+    color: #ffffff !important;
+}
+
+.dropdownCustom:hover{
+    background: #036760 !important;
+}
+
+.dropdownMenuCustom{
+    background: #036760 !important;
+}
+
+.dropdownItemCustom{
+    color: #ffffff !important;
+}
+.dropdownItemCustom:hover{
+    background: #024440 !important;
+    color: #ffffff !important;
+}
+
+/* .iconMenuCustom{
+    background: #024440;
+    color: #ffffff;
+    border-top: 1px solid #036760;
+    border-left: 1px solid #036760;
+    border-right: 1px solid #002422;
+    border-bottom: 1px solid #002422;
+} */

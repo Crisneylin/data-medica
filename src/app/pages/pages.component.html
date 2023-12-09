@@ -1,0 +1,11 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideMenuOpen"> 
+    <app-side-menu></app-side-menu>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (toggleSideMenuChange)="toggleSideMenuChange()"></app-header> 
+    <div class="customContainer">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

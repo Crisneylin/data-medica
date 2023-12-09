@@ -1,0 +1,49 @@
+<main>
+  <div class="row my-3">
+    <div class="col-12">
+      <button class="btn btn-custom me-1" (click)="openAddPatient()">
+        <i class="bi bi-person-plus-fill"></i> Nuevo Paciente
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="text-light text-end my-1"><strong>Total:</strong> {{patients.length}} pacientes</h4>
+    <div class="col-12 overflow-auto" style="max-height: 80vh;">
+      <table class="table table-striped table-dark table-hover">
+        <thead style="position: sticky; top: 0; z-index: 1;">
+          <tr>
+            <th class="rounded-top-3 rounded-end-0">Identificación</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Genero</th>
+            <th>Fecha de creación</th>
+            <th class="rounded-start-0 rounded-end-3">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr [className]="i+1 == patients.length ? 'border-bottom-tr' : ''" *ngFor="let patient of patients; let i = index">
+            <td [className]="i+1 == patients.length ? 'border-rounded-left' : ''">{{patient.identification | stringFormat: 'identification' }}</td>
+            <td>{{patient.name}}</td>
+            <td>{{patient.lastname}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.gender}}</td>
+            <td>{{patient.created_at | date:'dd-MM-yyyy'}}</td>
+            <td [className]="i+1 == patients.length ? 'border-rounded-right' : ''">
+              <button class="btn btn-custom me-1" (click)="openDetailsPatient(patient.id!)">
+                <i class="bi bi-person-lines-fill"></i>
+              </button>
+              <button class="btn btn-custom me-1" (click)="openEditPatient(patient)">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-custom" (click)="deletePatient(patient.id!)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Editar Paciente</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="patientForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <label for="identification" class="form-label">Identificación</label>
+            <input type="text" class="form-control" id="identification" formControlName="identification" [mask]="'000-0000000-0'">
+            <span class="text-danger">{{ errorMessages(patientForm, 'identification') }}</span>
+          </div>
+          <div class="col-4">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <span class="text-danger">{{ errorMessages(patientForm, 'name') }}</span>
+          </div>
+          <div class="col-4">
+            <label for="lastname" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname">
+            <span class="text-danger">{{ errorMessages(patientForm, 'lastname') }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="row">
+          <div class="col-4">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="age" formControlName="age">
+            <span class="text-danger">{{ errorMessages(patientForm, 'age') }}</span>
+          </div>
+          <div class="col-4">
+            <label for="gender" class="form-label">Género</label>
+            <select class="form-select" id="gender" formControlName="gender">
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select>
+            <span class="text-danger">{{ errorMessages(patientForm, 'gender') }}</span>
+          </div>
+          <div class="col-4">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <span class="text-danger">{{ errorMessages(patientForm, 'email') }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="row">
+          <div class="col-4">
+            <label for="phone" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone" [mask]="'(000) 000-0000'">
+            <span class="text-danger">{{ errorMessages(patientForm, 'phone') }}</span>
+          </div>
+          <div class="col-8">
+            <label for="address" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+            <span class="text-danger">{{ errorMessages(patientForm, 'address') }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onChange($event)" [multiple]="false">
+          <ngx-dropzone-label>
+            <div
+            ><h2>Arrastra foto del paciente</h2>
+            <!-- <h6>(Opcional)</h6> -->
+          </div>
+          </ngx-dropzone-label>
+          <ngx-dropzone-image-preview *ngIf="file" ngProjectAs="ngx-dropzone-preview" [file]="file" [removable]="true" (removed)="onRemove()">
+            <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <button class="btn btn-primary" (click)="viewImage()" *ngIf="patient.photo" >
+          <i class="bi bi-eye"></i> Ver Imagen
+        </button>
+        <span *ngIf="!patient.photo" class="">Esta persona no tiene una foto</span>  
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-dialog-close class="btn btn-danger">Cancelar</button>
+  <button class="btn btn-success" (click)="editPatient()">Guardar</button>
+</mat-dialog-actions>

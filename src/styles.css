@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%;
+    background: #303030 !important; 
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: #303030 !important; 
+}
+
+
+
+.btn-custom {
+    background-color: #036760 !important; 
+    border-color: #036760 !important;
+    color: #7EB3B0 !important;
+}
+.btn-custom:hover {
+    background-color: #025e58 !important;
+    border-color: #025e58 !important;
+}
+
+.btn-custom:active {
+    background: #02544f !important;
+}
+  
+
+.btn-outline-custom {
+    background-color: transparent !important;
+    border: 1px solid #036760 !important; 
+    color: #036760 !important; 
+    transition: background-color 0.3s ease !important;
+}
+.btn-outline-custom:hover {
+    background-color: #025e58 !important; 
+    color: #7EB3B0 !important;
+}
+.btn-outline-custom:active {
+    background: #02544f !important;
+}
+
+
+.circle-container {
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.circle-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se distorsione manteniendo su relación de aspecto */
+}
+  
+  

@@ -1,0 +1,69 @@
+<main>
+  <div class="row">
+    <div class="col-4 w-25">
+      <h1 class="texto-centrado">Datos del paciente</h1>
+      <div class="d-flex justify-content-center text-start border-primary border-2 rounded-4">
+        <div class="circle-container">
+          <img class="card-img-top" [src]="patient.photo || '../../../assets/img/user.png'" alt="img_del_curso" >
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-6"><span class="fs-6 fw-bold">Identificación: </span></div>
+        <div class="col-auto"><span>{{patient.identification}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Nombre: </span></div>
+        <div class="col-auto"><span>{{patient.name}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Apellido: </span></div>
+        <div class="col-auto"><span>{{patient.lastname}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Edad: </span></div>
+        <div class="col-auto"><span>{{patient.age}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Genero: </span></div>
+        <div class="col-auto"><span>{{patient.gender}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Teléfono: </span></div>
+        <div class="col-auto"><span>{{patient.phone}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Correo: </span></div>
+        <div class="col-auto"><span>{{patient.email}}</span></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6"><span class="fs-6 fw-bold">Dirección: </span></div>
+        <div class="col-auto"><span>{{patient.address}}</span></div>
+      </div>
+    </div>
+    <div class="col overflow-auto" style="max-height: 90vh;">
+      <table class="table table-striped table-dark table-hover">
+        <thead style="position: sticky; top: 0; z-index: 1;">
+          <tr>
+            <th class="rounded-top-3 rounded-end-0" style="width: 100px;">Fecha</th>
+            <th>Diagnostico</th>
+            <th class="rounded-start-0 rounded-end-3 text-center" style="width: 125px;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let consultation of consultations">
+            <td>{{consultation.date | date:'dd-MM-yyyy'}}</td>
+            <td>{{getDiagnostic(consultation.diagnostic)}}</td>
+            <td class="text-center">
+              <button class="btn btn-info me-2" (click)="DetailConsultation(consultation)"><i class="bi bi-card-heading"></i></button>
+              <button class="btn btn-danger" (click)="deleteConsultation(consultation)"><i class="bi bi-trash3"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+
+

@@ -1,0 +1,12 @@
+.box{
+    background-color: #ffffff;
+    color: #00a79c;
+    font-size: x-large !important;
+    border-radius: 4px;
+}
+
+.check-box{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+} 

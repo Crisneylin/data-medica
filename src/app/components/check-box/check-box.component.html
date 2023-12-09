@@ -1,0 +1,13 @@
+<div class="check-box" role="button" (click)="changeChecked()">
+  <div class="box me-1">
+    <div *ngIf="!checked"> 
+      <i class="bi bi-square fs-4"></i>
+    </div>
+    <div *ngIf="checked"> 
+      <i class="bi bi-check-square fs-4"></i>
+    </div>
+  </div>
+  <div class="text fs-6">
+    <span>{{label}}</span>
+  </div>
+</div>

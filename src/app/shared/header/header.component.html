@@ -1,0 +1,21 @@
+<mat-toolbar class="d-flex justify-content-between">
+  <div class="d-flex align-items-center">
+    <!-- <button class="iconMenuCustom" mat-icon-button
+      (click)="toggleSideMenu()">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <span>&nbsp; Data Medica - {{MenuHeadertitle}}</span>
+  </div>
+  <div class="dropdown">
+    <div class="dropdown-toggle dropdownCustom btn p-1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="../../../assets/img/user.png" alt="avatar" width="40" >
+      <span class="ms-2 text-light">{{userName}}</span>
+    </div>
+    <div class="d-inline-block">
+      <ul class="dropdown-menu dropdownMenuCustom">
+        <li (click)="redirectToProfile()"><a class="btn dropdown-item dropdownItemCustom">Perfil</a></li>
+        <li (click)="logout()"><a class="btn dropdown-item dropdownItemCustom">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</mat-toolbar>
